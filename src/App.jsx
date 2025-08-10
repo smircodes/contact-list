@@ -34,6 +34,10 @@ function App() {
     // console.log("New Contact Add:", newContact);
     setContacts([...contacts, newContact]);
   };
+  const deleteContactHandler = (id) => {
+    const filteredContacts = contacts.filter((item) => item.id !== id);
+    setContacts(filteredContacts);
+  };
   return (
     <>
       <div className="border m-10">
@@ -46,7 +50,11 @@ function App() {
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
             />
-            <ContactList contacts={contacts} searchTerm={searchTerm} />
+            <ContactList
+              contacts={contacts}
+              searchTerm={searchTerm}
+              onDeleteContact={deleteContactHandler}
+            />
           </ContactCard>
         </>
         {/* )} */}

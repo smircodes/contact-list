@@ -1,5 +1,5 @@
-export default function ContactList({ searchTerm, contacts }) {
-  const filteredContacts = contacts.filter(
+export default function ContactList({ searchTerm, contacts, onDeleteContact }) {
+  const displayContacts = contacts.filter(
     (contact) =>
       contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       contact.email.toLowerCase().includes(searchTerm.toLowerCase())
@@ -8,7 +8,7 @@ export default function ContactList({ searchTerm, contacts }) {
     <div>
       <h2>Contact List</h2>
       <ul className="contact-list">
-        {filteredContacts.map((contact) => {
+        {displayContacts.map((contact) => {
           return (
             <li key={contact.id} className="flex justify-between py-5">
               <div className="px-5">
@@ -17,7 +17,9 @@ export default function ContactList({ searchTerm, contacts }) {
               </div>
               <div className="flex gap-x-4">
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => onDeleteContact(contact.id)}>
+                  Delete
+                </button>
               </div>
             </li>
           );

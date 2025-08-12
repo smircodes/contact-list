@@ -4,6 +4,7 @@ export default function ContactList({ searchTerm, contacts, onDeleteContact }) {
       contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       contact.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
   return (
     <div>
       <h2>Contact List</h2>

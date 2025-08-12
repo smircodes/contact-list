@@ -1,29 +1,42 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 export default function AddContact({ onAddContact }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newContact = {
-      id: uuidv4(),
-      name,
-      phone,
-      email,
-    };
-    onAddContact(newContact);
-    setName("");
-    setPhone("");
-    setEmail("");
+
+    const newError = {};
+    if (!name.trim()) {
+      newError.name = "Name is required.";
+    }
+    if (!email.trim()) {
+      newError.email = "Email is required.";
+    }
+    if (!phone.trim()) {
+      newError.phone = "Phone is required.";
+    }
+    setErrorMessage(newError);
+    if (Object.keys(newError).length === 0) {
+      const newContact = {
+        name,
+        phone,
+        email,
+      };
+      onAddContact(newContact);
+      setName("");
+      setPhone("");
+      setEmail("");
+    }
   };
 
   return (
     <div className="py-7 px-5">
       <h1>Add Contact</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-4 mt-6">
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-2 mt-6">
         <input
           name="name"
           value={name}
@@ -32,6 +45,7 @@ export default function AddContact({ onAddContact }) {
           className="border"
           placeholder="name"
         />
+        <span className="text-red-500 text-sm">{errorMessage.name}</span>
         <input
           name="phone"
           type="text"
@@ -40,6 +54,7 @@ export default function AddContact({ onAddContact }) {
           className="border"
           placeholder="phone"
         />
+        <span className="text-red-500 text-sm">{errorMessage.phone}</span>
         <input
           name="email"
           type="text"
@@ -48,6 +63,7 @@ export default function AddContact({ onAddContact }) {
           className="border"
           placeholder="email"
         />
+        <span className="text-red-500 text-sm">{errorMessage.email}</span>
         <button type="submit">Add</button>
       </form>
     </div>

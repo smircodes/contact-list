@@ -1,4 +1,9 @@
-export default function ContactList({ searchTerm, contacts, onDeleteContact }) {
+export default function ContactList({
+  searchTerm,
+  contacts,
+  onDeleteContact,
+  onEdit,
+}) {
   const displayContacts = contacts.filter(
     (contact) =>
       contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -17,7 +22,7 @@ export default function ContactList({ searchTerm, contacts, onDeleteContact }) {
                 <p className="text-[#666]">{contact.email}</p>
               </div>
               <div className="flex gap-x-4">
-                <button>Edit</button>
+                <button onClick={() => onEdit(contact.id)}>Edit</button>
                 <button onClick={() => onDeleteContact(contact.id)}>
                   Delete
                 </button>

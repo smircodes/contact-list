@@ -40,12 +40,26 @@ function App() {
     }
   });
 
-  // useEffect(() => {
-  //   const saved = localStorage.getItem("contacts");
-  //   if (saved) {
-  //     setContacts(JSON.parse(saved));
-  //   }
-  // }, []);
+  // Edit contact-
+  const [selectedId, setSelectedId] = useState(null);
+
+  const editContactHandler = (id) => {
+    console.log("Edited contact:", id);
+    setSelectedId(id);
+    setActivePage("edit");
+  };
+
+  const contactToEdit = contacts.find((item) => item.id === selectedId);
+
+  const handleUpdateContact = (updateContact) => {
+    console.log("Updated user is:", updateContact);
+    setContacts((prevContacts) =>
+      prevContacts.map((prevContact) =>
+        prevContact.id === updateContact.id ? updateContact : prevContact
+      )
+    );
+  };
+
   // Saved contacts on stroge
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
@@ -75,25 +89,30 @@ function App() {
                 contacts={contacts}
                 searchTerm={searchTerm}
                 onDeleteContact={deleteContactHandler}
+                onEdit={editContactHandler}
               />
             </ContactCard>
           </>
         )}
       </div>
-      {activePage === "add" && (
-        <>
-          <div className="flex gap-6">
-            <div className="add-contact ml-10 border w-1/2">
-              <Navbar onNavigate={setActivePage} />
-              <AddContact onAddContact={addContactHandler} />
-            </div>
-            <div className="edit-contact mr-10 border w-1/2">
-              <Navbar onNavigate={setActivePage} />
-              <EditContact />
-            </div>
+
+      <div className="flex gap-6">
+        {activePage === "add" && (
+          <div className="add-contact ml-10 border w-1/2">
+            <Navbar onNavigate={setActivePage} />
+            <AddContact onAddContact={addContactHandler} />
           </div>
-        </>
-      )}
+        )}
+        {activePage === "edit" && contactToEdit && (
+          <div className="edit-contact  ml-10 border w-1/2">
+            <Navbar onNavigate={setActivePage} />
+            <EditContact
+              contact={contactToEdit}
+              onUpdateContact={handleUpdateContact}
+            />
+          </div>
+        )}
+      </div>
     </>
   );
 }

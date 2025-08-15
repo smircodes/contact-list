@@ -40,16 +40,18 @@ function App() {
     }
   });
 
-  // Edit contact-
-  const [selectedId, setSelectedId] = useState(null);
+  // Edit contact
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingContact, setEditingContact] = useState(null);
 
   const editContactHandler = (id) => {
-    console.log("Edited contact:", id);
-    setSelectedId(id);
+    // console.log("Edited contact:", id);
+    setIsEditing(true);
+    setEditingContact(id);
     setActivePage("edit");
   };
 
-  const contactToEdit = contacts.find((item) => item.id === selectedId);
+  const contactToEdit = contacts.find((item) => item.id === editingContact);
 
   const handleUpdateContact = (updateContact) => {
     console.log("Updated user is:", updateContact);
@@ -75,9 +77,9 @@ function App() {
 
   return (
     <>
-      <div className="border m-10">
+      <div className="m-10">
         {activePage === "list" && (
-          <>
+          <div className="border rounded shadowmb-2">
             <Navbar onNavigate={setActivePage} />
             <ContactCard>
               <SearchBar
@@ -92,7 +94,7 @@ function App() {
                 onEdit={editContactHandler}
               />
             </ContactCard>
-          </>
+          </div>
         )}
       </div>
 
@@ -103,12 +105,16 @@ function App() {
             <AddContact onAddContact={addContactHandler} />
           </div>
         )}
-        {activePage === "edit" && contactToEdit && (
+        {activePage === "edit" && contactToEdit && isEditing && (
           <div className="edit-contact  ml-10 border w-1/2">
             <Navbar onNavigate={setActivePage} />
             <EditContact
               contact={contactToEdit}
               onUpdateContact={handleUpdateContact}
+              isEditing={isEditing}
+              setIsEditing={setIsEditing}
+              setEditingContact={setEditingContact}
+              onNavigate={setActivePage}
             />
           </div>
         )}

@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-export default function EditContact({ contact, onUpdateContact }) {
+export default function EditContact({
+  contact,
+  onUpdateContact,
+  setIsEditing,
+  setEditingContact,
+  onNavigate,
+}) {
   const [name, setName] = useState(contact.name);
   const [phone, setPhone] = useState(contact.phone);
   const [email, setEmail] = useState(contact.email);
@@ -8,6 +14,14 @@ export default function EditContact({ contact, onUpdateContact }) {
   const handleSaveEdit = (e) => {
     e.preventDefault();
     onUpdateContact({ id: contact.id, name, phone, email });
+    onNavigate("list");
+  };
+  const handleCancel = (e) => {
+    e.preventDefault();
+    console.log("cancel clicked!");
+    setIsEditing(false);
+    setEditingContact(null);
+    onNavigate("list");
   };
   return (
     <div className="py-7 px-5">
@@ -35,6 +49,9 @@ export default function EditContact({ contact, onUpdateContact }) {
           type="text"
         />
         <button type="submit">Save</button>
+        <button onClick={handleCancel} type="button">
+          cancel
+        </button>
       </form>
     </div>
   );

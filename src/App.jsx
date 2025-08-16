@@ -40,6 +40,19 @@ function App() {
     }
   });
 
+  // Saved contacts on stroge
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
+
+  const addContactHandler = (newContact) => {
+    setContacts([...contacts, { id: uuidv4(), ...newContact }]);
+  };
+  const deleteContactHandler = (id) => {
+    const filteredContacts = contacts.filter((item) => item.id !== id);
+    setContacts(filteredContacts);
+  };
+
   // Edit contact
   const [isEditing, setIsEditing] = useState(false);
   const [editingContact, setEditingContact] = useState(null);
@@ -60,19 +73,6 @@ function App() {
         prevContact.id === updateContact.id ? updateContact : prevContact
       )
     );
-  };
-
-  // Saved contacts on stroge
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
-
-  const addContactHandler = (newContact) => {
-    setContacts([...contacts, { id: uuidv4(), ...newContact }]);
-  };
-  const deleteContactHandler = (id) => {
-    const filteredContacts = contacts.filter((item) => item.id !== id);
-    setContacts(filteredContacts);
   };
 
   return (

@@ -1,17 +1,52 @@
-<<<<<<< HEAD
-# React + Vite
+# 📒 Contact Book App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive **Contact Management Web App** built with **React** and **Tailwind CSS**.  
+You can **add, edit, and delete contacts** in a clean, modern UI.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+[View on GitHub Pages](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- 📋 List of contacts with details
+- ➕ Add new contact
+- ✏️ Edit existing contact
+- 🗑 Delete contact
+- 📱 Responsive design (mobile + desktop)
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
+- **React** (functional components + hooks)
+- **Tailwind CSS** for styling
+- **Vite / CRA** (choose based on your setup)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# contact-list
-mini project with react 
->>>>>>> 90b992cee9f2303f96e6d7c1bed1c5b3781450fa
+## 📂 Project Structure
+src/  
+├── components/  
+│   ├── Navbar.jsx  
+│   ├── ContactList.jsx  
+│   ├── EditContact.jsx  
+│   └── AddContact.jsx  
+├── App.jsx  
+├── index.css  
+└── main.jsx
+
+
+
+## ⚡ Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/smircodes/contact-list.git
+
+2. Navigate into the project folder:
+
+cd contact-list
+
+3. Install dependencies:
+
+npm install
+
+4. Start the development server:
+
+npm run dev
+
+📄 License
+This project is open source and available under the MIT License.

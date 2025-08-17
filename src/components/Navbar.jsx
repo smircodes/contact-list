@@ -1,6 +1,6 @@
 export default function Navbar({ onNavigate }) {
   return (
-    <div className="flex justify-between px-5 py-3 border-b bg-[#e7e7e7]">
+    <div className="flex justify-between px-5 py-3 border-[#e1e3e1] border-b">
       <h1>CONTACTS</h1>
 
       <ul className="flex items-center gap-10">

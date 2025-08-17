@@ -77,9 +77,9 @@ function App() {
 
   return (
     <>
-      <div className="m-10">
+      <div className="m-10 bg-white shadow-[0_35px_35px_rgba(0,0,0,0.25)] rounded-2xl">
         {activePage === "list" && (
-          <div className="border rounded shadowmb-2">
+          <div className=" rounded shadowmb-2">
             <Navbar onNavigate={setActivePage} />
             <ContactCard>
               <SearchBar

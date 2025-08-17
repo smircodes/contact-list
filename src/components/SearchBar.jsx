@@ -5,7 +5,7 @@ export default function Searchbar({ searchTerm, setSearchTerm }) {
         name="searchbar"
         id="Search-bar"
         type="text"
-        className="border"
+        className=""
         placeholder="Search"
         value={searchTerm}
         onChange={(e) => {

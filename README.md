@@ -4,7 +4,7 @@ A simple and responsive **Contact Management Web App** built with **React** and 
 You can **add, edit, and delete contacts** in a clean, modern UI.
 
 ## 🚀 Live Demo
-[View on GitHub Pages](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME)
+[View on GitHub Pages](https://smircodes.github.io/contact-list/)
 
 ## ✨ Features
 - 📋 List of contacts with details

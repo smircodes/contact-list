@@ -24,7 +24,7 @@ export default function EditContact({
     onNavigate("list");
   };
   return (
-    <div className="py-7 px-5">
+    <div className="py-7 px-5 ">
       <h1>Edit Contact</h1>
       <form onSubmit={handleSaveEdit} className="flex flex-col space-y-4 mt-6">
         <label>Name</label>
@@ -48,10 +48,21 @@ export default function EditContact({
           name="Email"
           type="text"
         />
-        <button type="submit">Save</button>
-        <button onClick={handleCancel} type="button">
-          cancel
-        </button>
+        <div className="flex space-x-2">
+          <button
+            className="px-3 bg-gray-200 py-1 rounded-md text-sm hover:bg-green-500"
+            type="submit"
+          >
+            Save
+          </button>
+          <button
+            className="px-3 py-1 bg-gray-200 rounded-md text-sm hover:bg-red-400"
+            onClick={handleCancel}
+            type="button"
+          >
+            cancel
+          </button>
+        </div>
       </form>
     </div>
   );

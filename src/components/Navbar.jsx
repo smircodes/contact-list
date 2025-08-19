@@ -6,7 +6,7 @@ export default function Navbar({ onNavigate }) {
       <ul className="flex items-center gap-10">
         <li>
           <a
-            className="text-[1.2em]"
+            className="text-gray-700 text-lg font-semibold"
             href="#"
             onClick={() => onNavigate("list")}
           >
@@ -15,7 +15,7 @@ export default function Navbar({ onNavigate }) {
         </li>
         <li>
           <a
-            className="text-[1.2em]"
+            className="text-gray-700 text-lg font-semibold"
             href="#"
             onClick={() => onNavigate("add")}
           >

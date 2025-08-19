@@ -98,15 +98,15 @@ function App() {
         )}
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex gap-6  ">
         {activePage === "add" && (
-          <div className="add-contact ml-10 border w-1/2">
+          <div className="add-contact bg-white ml-10 w-1/2 shadow-[0_35px_35px_rgba(0,0,0,0.25)] rounded-2xl">
             <Navbar onNavigate={setActivePage} />
             <AddContact onAddContact={addContactHandler} />
           </div>
         )}
         {activePage === "edit" && contactToEdit && isEditing && (
-          <div className="edit-contact  ml-10 border w-1/2">
+          <div className="edit-contact bg-white ml-10 w-1/2 shadow-[0_35px_35px_rgba(0,0,0,0.25)] rounded-2xl">
             <Navbar onNavigate={setActivePage} />
             <EditContact
               contact={contactToEdit}

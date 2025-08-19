@@ -64,7 +64,12 @@ export default function AddContact({ onAddContact }) {
           placeholder="email"
         />
         <span className="text-red-500 text-sm">{errorMessage.email}</span>
-        <button type="submit">Add</button>
+        <button
+          className="h-8 bg-gray-200 rounded-md text-sm hover:bg-blue-400"
+          type="submit"
+        >
+          Add
+        </button>
       </form>
     </div>
   );

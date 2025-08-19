@@ -16,8 +16,6 @@
 }
 
 a {
-  font-weight: 400;
-  /* color: #646cff; */
   text-decoration: inherit;
 }
 body {
@@ -27,7 +25,6 @@ body {
 
 h1 {
   font-size: 1.3em;
-  line-height: 1.1;
   font-weight: 600;
 }
 h2 {
@@ -48,7 +45,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #57575a;
 }
 button:focus,
 button:focus-visible {
